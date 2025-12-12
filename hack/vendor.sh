@@ -12,26 +12,26 @@ PROJECT_DIR="$(cd "$SCRIPTDIR/.." && pwd)"
 tidy() (
 	(
 		set -x
-		"${SCRIPTDIR}"/with-go-mod.sh go mod tidy -modfile vendor.mod -compat 1.18
+		"${SCRIPTDIR}"/with-go-mod.sh /usr/local/go/bin/go mod tidy -modfile vendor.mod -compat 1.18
 	)
 
 	(
 		set -x
 		cd man
-		go mod tidy
+		/usr/local/go/bin/go mod tidy
 	)
 )
 
 vendor() (
 	(
 		set -x
-		"${SCRIPTDIR}"/with-go-mod.sh go mod vendor -modfile vendor.mod
+		"${SCRIPTDIR}"/with-go-mod.sh /usr/local/go/bin/go mod vendor -modfile vendor.mod
 	)
 
 	(
 		set -x
 		cd man
-		go mod vendor
+		/usr/local/go/bin/go mod vendor
 	)
 )
 
